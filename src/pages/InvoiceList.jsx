@@ -39,6 +39,9 @@ const InvoiceList = () => {
             <div className="d-flex flex-column">
               <div className="d-flex flex-row align-items-center justify-content-between">
                 <h3 className="fw-bold pb-2 pb-md-4">Invoice List</h3>
+                <Link to="/bulkEdit">
+                  <Button variant="secondary mb-2 mb-md-4">Bulk Edit</Button>
+                </Link>
                 <Link to="/create">
                   <Button variant="primary mb-2 mb-md-4">Create Invoice</Button>
                 </Link>

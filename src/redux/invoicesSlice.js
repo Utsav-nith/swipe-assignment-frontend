@@ -6,9 +6,11 @@ const invoicesSlice = createSlice({
   reducers: {
     addInvoice: (state, action) => {
       state.push(action.payload);
+      return state;
     },
     deleteInvoice: (state, action) => {
-      return state.filter((invoice) => invoice.id !== action.payload);
+      const updatedState = state.filter((invoice) => invoice.id !== action.payload);
+      return updatedState;
     },
     updateInvoice: (state, action) => {
       const index = state.findIndex(
@@ -17,14 +19,20 @@ const invoicesSlice = createSlice({
       if (index !== -1) {
         state[index] = action.payload.updatedInvoice;
       }
+      return state;
+    },
+    updateBulkInvoice: (state, action) => {
+      return action.payload;
     },
   },
 });
+
 
 export const {
   addInvoice,
   deleteInvoice,
   updateInvoice,
+  updateBulkInvoice,
 } = invoicesSlice.actions;
 
 export const selectInvoiceList = (state) => state.invoices;
